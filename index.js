@@ -23,6 +23,7 @@ async function loadState(){
   }
 
   
+
 function createState(fieldData) {
 
     state.target = fieldData.target
@@ -113,6 +114,26 @@ function updateCountDown() {
     $('#body #timer .minute').text(hidehour ? negative ? '-' + mm : mm : mm)
     $('#body #timer .second').text(ss)
 }
+
+function activateWidget() {
+    if(state.ghostMode){
+      $('#container').removeClass('ghost')
+      
+        clearTimeout(globalGhostTimeout)
+      globalGhostTimeout = setTimeout(() => {
+          $('#container').addClass('ghost') 
+      }, state.ghostModeTimeout * 1000)
+    }
+  }
+  
+  function recusiveGhostmode(){
+   
+        if($('#container').hasClass('ghost')){
+          activateWidget()
+      } 
+    
+  }
+  
 
 //------------------------------------->
 function segundosParaTempo(segundos) {
