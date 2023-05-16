@@ -3,6 +3,25 @@ const state = {}
 let globalSaveTimeout
 let globalGhostTimeout
 
+
+
+
+async function loadState(){
+  
+    const storedData = await SE_API.store.get('timer')
+    state.timerCountStarts = new Date(storedData.timerCountStarts)
+    state.totals = storedData.totals
+    updateSteps()
+    
+  }
+  async function saveState() { 
+            clearTimeout(globalSaveTimeout)
+        globalSaveTimeout =    setTimeout(async ()=>{ 
+          globalSaveTimeout = true
+    await SE_API.store.set('timer', {timerCountStarts: state.timerCountStarts,totals: state.totals})
+            },1000)
+  }
+//------------------------------------->
 function segundosParaTempo(segundos) {
     var horas = Math.floor(Math.abs(segundos) / 3600);
     var minutos = Math.floor((Math.abs(segundos) - (horas * 3600)) / 60);
