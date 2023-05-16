@@ -1,4 +1,7 @@
 
+const state = {}
+let globalSaveTimeout
+let globalGhostTimeout
 
 function segundosParaTempo(segundos) {
     var horas = Math.floor(Math.abs(segundos) / 3600);
