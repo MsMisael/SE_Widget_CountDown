@@ -48,6 +48,21 @@ function createState(fieldData) {
     state.hideHeadersMode = Boolean(fieldData.hideHeadersMode)
   	state.ghostModeRefreshTimeout = Number(fieldData.ghostModeRefreshTimeout)
 }
+
+function configHeaders(fieldData) {
+
+  	
+    $('#timerContainer').addClass(fieldData.headerHorizontalAlign.toLowerCase())
+    $('#timerContainer').addClass(fieldData.headerVerticalAlign.toLowerCase()) 
+    Number(fieldData.headerLabel1) > 0 ? $('#first #timer .label').text(`${fieldData.headerLabel1}X`) : $('#first').fadeIn()
+    Number(fieldData.headerLabel2) > 0 ? $('#second #timer .label').text(`${fieldData.headerLabel2}X`) : $('#second').fadeIn()
+    Number(fieldData.headerLabel3) > 0 ? $('#third #timer .label').text(`${fieldData.headerLabel3}X`) : $('#third').fadeIn()
+
+    updateHeaders()
+}
+
+
+
 //------------------------------------->
 function segundosParaTempo(segundos) {
     var horas = Math.floor(Math.abs(segundos) / 3600);
