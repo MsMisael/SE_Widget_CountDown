@@ -1,5 +1,17 @@
 
 
+function segundosParaTempo(segundos) {
+    var horas = Math.floor(Math.abs(segundos) / 3600);
+    var minutos = Math.floor((Math.abs(segundos) - (horas * 3600)) / 60);
+    var segundosRestantes = Math.abs(segundos) % 60;
+    var negativo = segundos < 0;
+    var horasFormatadas = Number(Math.round(horas)) < 10 ? "0" + Math.round(horas) : Math.round(horas);
+    var minutosFormatados = Number(Math.round(minutos)) < 10 ? "0" + Math.round(minutos) : Math.round(minutos);
+    var segundosFormatados =  Math.round(segundosRestantes)  < 10 ? "0" + Math.round(segundosRestantes) : Math.round(segundosRestantes);
+    
+    return [horasFormatadas, minutosFormatados, segundosFormatados, negativo];
+}
+
 function converterTempo(arr) {
     let horas = parseInt(arr[0]);
     let minutos = parseInt(arr[1]);
