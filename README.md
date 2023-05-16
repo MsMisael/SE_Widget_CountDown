@@ -39,19 +39,20 @@ Configure os conteúdos nas guias a seguir:
 
 Guia 1 - FIELDS:
 
-No campo "FIELDS" (Campos), cole o conteúdo do arquivo `index.json` do repositório. Certifique-se de que o arquivo esteja formatado corretamente.
+* No campo "FIELDS" (Campos), cole o conteúdo do arquivo `index.json` do repositório. Certifique-se de que o arquivo esteja formatado corretamente.
 Guia 2 - CSS:
 
-No campo "CSS" (Estilo), cole o conteúdo do arquivo `index.sass` fornecido no repositório.
+* No campo "CSS" (Estilo), cole o conteúdo do arquivo `index.sass` fornecido no repositório.
 Guia 3 - HTML:
 
-No campo "HTML", cole o conteúdo do arquivo `index.html` fornecido no repositório.
+* No campo "HTML", cole o conteúdo do arquivo `index.html` fornecido no repositório.
 Guia 4 - JS:
 
-No campo "JS" (JavaScript), cole o conteúdo do arquivo JavaScript `index.js` fornecido no repositório.
-Observação importante: Certifique-se de que a guia "DATA" esteja vazia, contendo apenas o valor `{}`.
+* No campo "JS" (JavaScript), cole o conteúdo do arquivo JavaScript `index.js` fornecido no repositório.
 
-Personalize o widget:
+### Observação importante: Certifique-se de que a guia "DATA" esteja vazia, contendo apenas o valor `{}`.
+
+## Personalize o widget:
 
 Faça ajustes adicionais no estilo, layout e configurações do widget, conforme necessário.
 Salve as alterações:
