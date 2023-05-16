@@ -4,6 +4,44 @@ let globalSaveTimeout
 let globalGhostTimeout
 
 
+window.addEventListener('onWidgetLoad', onWidgetLoad)
+window.addEventListener('onEventReceived', onEventReceived)
+
+async function onWidgetLoad(obj) { 
+  
+    const fieldData = obj.detail.fieldData
+    createState(fieldData)
+  	await loadState()
+  	await saveState()
+    configHeaders(fieldData)
+  	activateWidget()
+    setInterval(() => {
+        updateCountDown()
+    }, 1000)
+  	setInterval(()=>{
+    	recusiveGhostmode()
+    },(state.ghostModeRefreshTimeout + state.ghostModeTimeout) * 1000)
+}
+
+function onEventReceived(obj) { 
+    if (!obj.detail.event) {
+        return;
+    }
+    if (typeof obj.detail.event.itemId !== "undefined") {
+        obj.detail.listener = "redemption-latest"
+    }
+   
+      if (obj.detail.event.data?.key === 'customWidget.timer'  ) { 
+          if(!globalSaveTimeout){
+          loadState()
+          }
+        return;
+    }
+    const listener = obj.detail.listener.split("-")[0];
+  	const field = obj.detail.event.field
+    const event = obj.detail.event;  
+    loadEvent(listener, event,field) 
+}
 
 
 async function loadState(){
