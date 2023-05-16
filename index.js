@@ -244,3 +244,48 @@ function diffInSeconds(date1, date2) {
     const diff = date1.getTime() - date.getTime()
     return Math.floor(diff / 1000);
 }
+function createTimesObj(target, time, initialTime, stepsTime1, stepsTime2, stepsTime3,paramsKey) {
+    function calcprogress(current, max) {
+        return current / max
+    }
+
+    function calcmultiply(progress,paramCurve) {
+      const params = {
+            "CurveExtreme": {a:-10,b:9,c:1},
+      "CurveModerate": {a:-5.86,b:4.86,c:1},
+      "CurveLight":  {a:-3.7,b:-2.7,c:1},
+      "CurveLinearUp":  {a:0,b:1,c:1},
+      "CurveLinearDown": {a:0,b:-1,c:1},
+      "CurveConstant":  {a:0,b:0,c:1},
+      }
+      const paramsCurve = params[paramCurve] 
+        return paramsCurve.a * Math.pow(progress, 2) + (paramsCurve.b * progress) + paramsCurve.c
+    }
+
+    const arr = [{ step: 0, progress: 0, multiply: 0, stackTime: initialTime }]
+    for (let i = 1; i <= target; i++) {
+        const step = i
+        const progress = calcprogress(i, target)
+        const multiply = calcmultiply(calcprogress(i, target),paramsKey)
+        const addTime = time * multiply
+        const stackTime = arr[i - 1].stackTime + addTime
+        arr.push({ step, progress, multiply, addTime, stackTime })
+    }
+
+    const postArr = arr.map((step, index, arr) => {
+        let addTime1 = 0
+        let addTime2 = 0
+        let addTime3 = 0
+        for (let i = 0; i < stepsTime1; i++) {
+            addTime1 += arr[index + i]?.addTime || 0
+        }
+        for (let i = 0; i < stepsTime2; i++) {
+            addTime2 += arr[index + i]?.addTime || 0
+        }
+        for (let i = 0; i < stepsTime3; i++) {
+            addTime3 += arr[index + i]?.addTime || 0
+        }
+        return { ...step, addTime1, addTime2, addTime3 }
+    })
+    return postArr
+}
