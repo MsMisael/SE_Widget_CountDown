@@ -61,7 +61,38 @@ function configHeaders(fieldData) {
     updateHeaders()
 }
 
+function updateHeaders() {
 
+	if(state.hideHeadersMode) $('#container').addClass('noheaders')
+    $('#first #timer .minute').text(segundosParaTempo(state.nextStep.addTime1)[1])
+    $('#first #timer .second').text(segundosParaTempo(state.nextStep.addTime1)[2])
+
+    $('#second #timer .minute').text(converterTempo(segundosParaTempo(state.nextStep.addTime2))[0])
+    $('#second #timer .second').text(converterTempo(segundosParaTempo(state.nextStep.addTime2))[1])
+
+    $('#third #timer .minute').text(converterTempo(segundosParaTempo(state.nextStep.addTime3))[0])
+    $('#third #timer .second').text(converterTempo(segundosParaTempo(state.nextStep.addTime3))[1])
+ 
+    state.nextStep.addTime1 == 0 ? $('#first').fadeOut() : $('#first').fadeIn()
+    state.nextStep.addTime2 == state.nextStep.addTime1 || state.nextStep.addTime2 == 0 ? $('#second').fadeOut() : $('#second').fadeIn()
+    state.nextStep.addTime3 == state.nextStep.addTime2 || state.nextStep.addTime3 == 0 ? $('#third').fadeOut() : $('#third').fadeIn()
+	state.currentStep.step == state.nextStep.step && $('#first').fadeOut()
+}
+
+
+function updateCountDown() {
+    const countDownStartsTime = diffInSeconds(state.timerCountStarts) > 0 ? diffInSeconds(state.timerCountStarts) : 0
+    const elapsedTime = diffInSeconds(new Date(), state.timerCountStarts) > 0 ? diffInSeconds(new Date(), state.timerCountStarts) : 0
+    const aditionalTime = state.currentStep.stackTime
+    const [hh, mm, ss, negative] = segundosParaTempo(countDownStartsTime + aditionalTime - elapsedTime)
+  
+    const hidehour = Number(hh) == 0
+ 
+    $('#body #timer .hour').text(hidehour ? '' : negative ? '-' + hh : hh)
+    $('#body #timer .hourmarker').text(hidehour ? '' : ':')
+    $('#body #timer .minute').text(hidehour ? negative ? '-' + mm : mm : mm)
+    $('#body #timer .second').text(ss)
+}
 
 //------------------------------------->
 function segundosParaTempo(segundos) {
