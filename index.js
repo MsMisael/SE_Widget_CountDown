@@ -61,6 +61,26 @@ function configHeaders(fieldData) {
     updateHeaders()
 }
 
+function updateSteps() {
+    let stepsOfTips = 0
+    let stepsOfSubs = 0
+    let stepsOfCheers = 0
+    if (state.includes.tips && state.amountsRate.tips > 0) {
+         stepsOfTips = state.totals.tips / state.amountsRate.tips
+    }    
+  	if (state.includes.subs && state.amountsRate.subs > 0) {
+        stepsOfSubs = state.totals.subs / state.amountsRate.subs  
+    }
+    	if (state.includes.cheers && state.amountsRate.cheers > 0) {
+        stepsOfCheers = state.totals.cheers / state.amountsRate.cheers  
+    }
+	
+  	const totalSteps = stepsOfCheers + stepsOfTips + stepsOfSubs
+    state.currentStep = state.timesObj[(totalSteps > state.target ? state.target : totalSteps)]
+    state.nextStep = state.timesObj[(totalSteps+1 > state.target ? state.target : totalSteps+1)]
+  
+}
+
 function updateHeaders() {
 
 	if(state.hideHeadersMode) $('#container').addClass('noheaders')
