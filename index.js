@@ -21,6 +21,33 @@ async function loadState(){
     await SE_API.store.set('timer', {timerCountStarts: state.timerCountStarts,totals: state.totals})
             },1000)
   }
+
+  
+function createState(fieldData) {
+
+    state.target = fieldData.target
+    state.time = fieldData.time
+    state.initialTime = fieldData.initialTime
+    state.includeTips = fieldData.includeTips === "yes"
+    state.timerCountStarts = new Date()
+  	state.multiplyTimeFunction = fieldData.multiplyTimeFunction 
+
+    state.headerLabel1 = Number(fieldData.headerLabel1)
+    state.headerLabel2 = Number(fieldData.headerLabel2)
+    state.headerLabel3 = Number(fieldData.headerLabel3)
+
+    state.totals = { tips: 0,subs:0,cheers:0 }
+    state.amountsRate = { tips: fieldData.amountPerTip,subs: fieldData.amountPerSub,cheers:fieldData.amountPerCheer }
+    state.includes = { tips: fieldData.includeTips === "yes",subs:fieldData.includeSubs === "yes",cheers: fieldData.includeCheers=== "yes"}
+
+    state.timesObj = createTimesObj(state.target, state.time, state.initialTime, state.headerLabel1, state.headerLabel2, state.headerLabel3,state.multiplyTimeFunction)
+    state.currentStep = state.timesObj[0]
+  	state.nextStep = state.timesObj[1] 
+  	state.ghostMode = Boolean(fieldData.enableGhostMode)
+  	state.ghostModeTimeout = Number(fieldData.ghostModeTimeout)
+    state.hideHeadersMode = Boolean(fieldData.hideHeadersMode)
+  	state.ghostModeRefreshTimeout = Number(fieldData.ghostModeRefreshTimeout)
+}
 //------------------------------------->
 function segundosParaTempo(segundos) {
     var horas = Math.floor(Math.abs(segundos) / 3600);
