@@ -24,6 +24,43 @@ async function loadState(){
 
   
 
+  async function loadEvent(listener, event,field) {
+    let skip = true
+  if (listener === 'follower') {
+  } else if (listener === 'redemption') {
+  } else if (listener === 'subscriber') {
+      if (state.includes.subs) {
+          state.totals.subs += event.amount
+        skip = false
+      }
+  } else if (listener === 'host') {
+  } else if (listener === 'cheer') {
+      if (state.includes.cheers) {
+          state.totals.cheers += event.amount
+        skip = false
+      } 
+    } else if (listener === 'tip') {
+      if (state.includes.tips) {
+          state.totals.tips += event.amount
+        skip = false
+      }
+    } else if (listener === 'raid') {
+
+  }	else if (field === 'resetTimer') { 
+      state.timerCountStarts = new Date()   
+        skip = false
+  }	else if (field === 'resetTotals') {   
+        state.totals = { tips: 0,subs:0,cheers:0 } 
+        skip = false
+  }
+ 
+    if(skip) return 
+  await saveState()
+   activateWidget()
+  updateSteps()
+  updateHeaders()
+}
+
 function createState(fieldData) {
 
     state.target = fieldData.target
