@@ -1,7 +1,5 @@
 
-const state = {}
-let globalSaveTimeout
-let globalGhostTimeout
+const state = {} 
 
 
 window.addEventListener('onWidgetLoad', onWidgetLoad)
@@ -32,7 +30,7 @@ function onEventReceived(obj) {
     }
    
       if (obj.detail.event.data?.key === 'customWidget.timer'  ) { 
-          if(!globalSaveTimeout){
+          if(!state.saveTimeout){
           loadState()
           }
         return;
@@ -53,9 +51,9 @@ async function loadState(){
     
   }
   async function saveState() { 
-            clearTimeout(globalSaveTimeout)
-        globalSaveTimeout =    setTimeout(async ()=>{ 
-          globalSaveTimeout = true
+            clearTimeout(state.saveTimeout)
+        state.saveTimeout =    setTimeout(async ()=>{ 
+          state.saveTimeout = true
     await SE_API.store.set('timer', {timerCountStarts: state.timerCountStarts,totals: state.totals})
             },1000)
   }
@@ -101,6 +99,8 @@ async function loadState(){
 
 function createState(fieldData) {
 
+    state.saveTimeout
+    state.ghostTimeout
     state.target = fieldData.target
     state.time = fieldData.time
     state.initialTime = fieldData.initialTime
@@ -194,8 +194,8 @@ function activateWidget() {
     if(state.ghostMode){
       $('#container').removeClass('ghost')
       
-        clearTimeout(globalGhostTimeout)
-      globalGhostTimeout = setTimeout(() => {
+        clearTimeout(state.ghostTimeout)
+      state.ghostTimeout = setTimeout(() => {
           $('#container').addClass('ghost') 
       }, state.ghostModeTimeout * 1000)
     }
