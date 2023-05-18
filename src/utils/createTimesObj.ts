@@ -33,3 +33,41 @@ export default function createTimesObj(target: number, time: number, initialTime
     })
     return postArr
 }
+
+function createStepsArray(initialStep = 0, target: number) {
+    const stepsArray = [{ step: initialStep }]
+    for (let step = 1; step < target; step++) {
+        stepsArray.push({ step })
+    }
+    return stepsArray
+}
+
+function setProgressInArray(stepsArray: { step: number }[]) {
+    return stepsArray.map(({ step }) => {
+        return { step, progress: calcProgress(step, stepsArray.length) }
+    })
+}
+
+function setMultiplierInArray(curve: curve, stepsArray: { step: number, progress: number; }[]) {
+    return stepsArray.map(({ step, progress }) => {
+        return { step, progress, multiply: calcMultiplier(progress, curve) }
+    })
+}
+
+function setAddTimeInArray(time: number, stepsArray: { step: number, progress: number, multiply: number }[]) {
+    return stepsArray.map(({ step, progress, multiply }) => {
+        return { step, progress, multiply, addTime: time * multiply }
+    })
+}
+
+function setStackTimeInArray(stepsArray: { step: number, progress: number, multiply: number, addTime: number }[]) {
+    return stepsArray.map(({ step, progress, multiply, addTime }, index) => {
+        let stackTime = 0
+        for (let i = 0; i < index; i++) {
+            stackTime += stepsArray[i].addTime
+        }
+        return { step, progress, multiply, addTime, stackTime }
+    })
+}
+
+//20230597438

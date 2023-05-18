@@ -14,5 +14,5 @@ export default function convertTime(arr: arrTimes): [string | number, string | n
     let formattedMinutes = totalMinutes < 10 ? "0" + Math.round(totalMinutes) : Math.round(totalMinutes).toString();
     let formattedSeconds = seconds < 10 ? "0" + Math.round(seconds) : Math.round(seconds).toString();
 
-    return [formattedMinutes, formattedSeconds, false];
+    return [formattedMinutes, formattedSeconds, arr[3]];
 }
