@@ -6,68 +6,65 @@ import calcMultiplier from './calcMultiplier'
 
 export default function createTimesObj(target: number, time: number, initialTime: number, stepsTime1: number, stepsTime2: number, stepsTime3: number, curve: curve) {
 
-    const arr = [{ step: 0, progress: 0, multiply: 0, stackTime: initialTime, addTime: 0 }]
-    for (let i = 1; i <= target; i++) {
-        const step = i
-        const progress = calcProgress(i, target)
-        const multiply = calcMultiplier(calcProgress(i, target), curve)
-        const addTime = time * multiply
-        const stackTime = arr[i - 1].stackTime + addTime
-        arr.push({ step, progress, multiply, addTime, stackTime })
-    }
+    const stepsArray = createStepsArray(target)
+    const progressArray = setProgressInArray(10, stepsArray)
+    const multiplierArray = setMultiplierInArray(curve, progressArray)
+    const addTimeArray = setAddTimeInArray(time, multiplierArray)
+    const stackTimeArray = setStackTimeInArray(initialTime, addTimeArray)
+    const addTime1Array = setCustomAddTimeInArray(stackTimeArray, stepsTime1, '1')
+    const addTime2Array = setCustomAddTimeInArray(addTime1Array, stepsTime2, '2')
+    const addTime3Array = setCustomAddTimeInArray(addTime2Array, stepsTime3, '3')
 
-    const postArr = arr.map((step, index, arr) => {
-        let addTime1 = 0
-        let addTime2 = 0
-        let addTime3 = 0
-        for (let i = 0; i < stepsTime1; i++) {
-            addTime1 += arr[index + i]?.addTime || 0
-        }
-        for (let i = 0; i < stepsTime2; i++) {
-            addTime2 += arr[index + i]?.addTime || 0
-        }
-        for (let i = 0; i < stepsTime3; i++) {
-            addTime3 += arr[index + i]?.addTime || 0
-        }
-        return { ...step, addTime1, addTime2, addTime3 }
-    })
-    return postArr
+    return addTime3Array
 }
 
-function createStepsArray(initialStep = 0, target: number) {
-    const stepsArray = [{ step: initialStep }]
-    for (let step = 1; step < target; step++) {
+export function createStepsArray(target: number) {
+    const stepsArray = [{ step: 0 }]
+    for (let step = 1; step <= target; step++) {
         stepsArray.push({ step })
     }
     return stepsArray
 }
 
-function setProgressInArray(stepsArray: { step: number }[]) {
+export function setProgressInArray(target: number, stepsArray: { step: number }[]) {
     return stepsArray.map(({ step }) => {
-        return { step, progress: calcProgress(step, stepsArray.length) }
+        return { step, progress: calcProgress(step, target) }
     })
 }
 
-function setMultiplierInArray(curve: curve, stepsArray: { step: number, progress: number; }[]) {
+export function setMultiplierInArray(curve: curve, stepsArray: { step: number, progress: number; }[]) {
     return stepsArray.map(({ step, progress }) => {
         return { step, progress, multiply: calcMultiplier(progress, curve) }
     })
 }
 
-function setAddTimeInArray(time: number, stepsArray: { step: number, progress: number, multiply: number }[]) {
+export function setAddTimeInArray(time: number, stepsArray: { step: number, progress: number, multiply: number }[]) {
     return stepsArray.map(({ step, progress, multiply }) => {
         return { step, progress, multiply, addTime: time * multiply }
     })
 }
 
-function setStackTimeInArray(stepsArray: { step: number, progress: number, multiply: number, addTime: number }[]) {
-    return stepsArray.map(({ step, progress, multiply, addTime }, index) => {
-        let stackTime = 0
-        for (let i = 0; i < index; i++) {
+export function setStackTimeInArray(initialTime: number, stepsArray: { step: number, progress: number, multiply: number, addTime: number }[]) {
+    return stepsArray.map(({ step, progress, multiply, addTime }) => {
+        let stackTime = initialTime
+        for (let i = 1; i <= step; i++) {
             stackTime += stepsArray[i].addTime
         }
         return { step, progress, multiply, addTime, stackTime }
     })
 }
+
+export function setCustomAddTimeInArray(stepsArray: { step: number, progress: number, multiply: number, addTime: number, stackTime: number }[], nextSteps: number, customIndex: '1' | '2' | '3') {
+    return stepsArray.map((stepArray) => {
+        let customAddTime = 0
+        for (let i = 0; i < nextSteps; i++) {
+            customAddTime += stepsArray[stepArray.step + i]?.addTime || 0
+        }
+
+        return { ...stepArray, ['addTime' + customIndex]: customAddTime }
+    })
+}
+
+
 
 //20230597438
