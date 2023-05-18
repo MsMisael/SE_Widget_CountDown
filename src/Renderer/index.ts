@@ -23,8 +23,8 @@ declare interface configHeadersData extends headersData {
 }
 
 export default class Renderer {
-    private _ghostTimeout: number = 0
-    public set ghostTimeout(value: number) {
+    private _ghostTimeout: NodeJS.Timeout = setTimeout(() => { }, 0)
+    public set ghostTimeout(value: NodeJS.Timeout) {
         this._ghostTimeout = value
     }
     private _ghostMode: boolean = false
@@ -37,7 +37,7 @@ export default class Renderer {
     public set ghostModeTimeout(value: number) {
         this._ghostModeTimeout = value
     }
-    private _hideHeadersMode: boolean
+    private _hideHeadersMode: boolean = false
 
     public set hideHeadersMode(value: boolean) {
         this._hideHeadersMode = value
