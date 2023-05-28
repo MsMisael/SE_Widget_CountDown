@@ -1,0 +1,430 @@
+{
+  "resetTimer": {
+    "type": "button",
+    "label": "Start/Reset CountDown",
+    "value": "countDown",
+    "group": "CountDown controls"
+  },
+  "resetTotals": {
+    "type": "button",
+    "label": "Start/Reset Contribuitons",
+    "value": "totals",
+    "group": "CountDown controls"
+  },
+  "target": {
+    "type": "number",
+    "min": 0,
+    "max": 9000,
+    "step": 1,
+    "label": "Max Marks",
+    "value": 100,
+    "group": "Event time settings"
+  },
+  "time": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "Time per Marks (seconds)",
+    "value": 120,
+    "group": "Event time settings"
+  },
+  "initialTime": {
+    "type": "number",
+    "min": 0,
+    "step": 60,
+    "label": "Initial additional (seconds)",
+    "value": 0,
+    "group": "Event time settings"
+  },
+  "headerLabel1": {
+    "type": "number",
+    "min": 0,
+    "max": 5,
+    "step": 1,
+    "label": "Header label 1",
+    "value": 1,
+    "group": "Headers settings"
+  },
+  "headerLabel2": {
+    "type": "number",
+    "min": 0,
+    "max": 20,
+    "step": 5,
+    "label": "Header label 2",
+    "value": 5,
+    "group": "Headers settings"
+  },
+  "headerLabel3": {
+    "type": "number",
+    "min": 0,
+    "max": 50,
+    "step": 10,
+    "label": "Header label 3",
+    "value": 10,
+    "group": "Headers settings"
+  },
+  "includeTips": {
+    "type": "dropdown",
+    "label": "Include Tips:",
+    "value": "no",
+    "group": "Events settings",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "amountPerTip": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "1X = tips:",
+    "value": 5,
+    "group": "Events settings"
+  },
+  "includeSubs": {
+    "type": "dropdown",
+    "label": "Include Subs:",
+    "value": "no",
+    "group": "Events settings",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "amountPerSub": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "1X = Subs:",
+    "value": 1,
+    "group": "Events settings"
+  },
+  "includeCheers": {
+    "type": "dropdown",
+    "label": "Include Bits:",
+    "value": "no",
+    "group": "Events settings",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "amountPerCheer": {
+    "type": "number",
+    "min": 0,
+    "step": 1,
+    "label": "1X = Bits:",
+    "value": 100,
+    "group": "Events settings"
+  },
+  "backgroundColor": {
+    "type": "colorpicker",
+    "label": "Background Color",
+    "value": "rgba(255,0,0,1)",
+    "group": "Card"
+  },
+  "backgroundColor1": {
+    "type": "colorpicker",
+    "label": "Background Color",
+    "value": "rgba(255,0,0,1)",
+    "group": "Card"
+  },
+  "backgroundColor2": {
+    "type": "colorpicker",
+    "label": "Background Color",
+    "value": "rgba(255,0,0,1)",
+    "group": "Card"
+  },
+  "backgroundColor3": {
+    "type": "colorpicker",
+    "label": "Background Color",
+    "value": "rgba(255,0,0,1)",
+    "group": "Card"
+  },
+  "backgroundDegrees": {
+    "type": "number",
+    "label": "Degrees",
+    "value": 35,
+    "step": 1,
+    "min": 0,
+    "max": 360,
+    "group": "Card"
+  },
+  "backgroundBorder": {
+    "type": "number",
+    "label": "Background Border radius",
+    "value": 0,
+    "step": 1,
+    "group": "Card"
+  },
+  "shadowVertical": {
+    "type": "number",
+    "label": "text shadow  Vertical Position",
+    "value": 0,
+    "step": 1,
+    "group": "Typography"
+  },
+  "shadowHorizontal": {
+    "type": "number",
+    "label": "text shadow Horizontal Position",
+    "value": 0,
+    "step": 1,
+    "group": "Typography"
+  },
+  "shadowSpread": {
+    "type": "number",
+    "label": "text shadow blur",
+    "value": 0,
+    "step": 1,
+    "group": "Typography"
+  },
+  "shadowColor": {
+    "type": "colorpicker",
+    "label": "Shadow Color",
+    "value": "rgba(255,0,0,0)",
+    "group": "Typography"
+  },
+  "enableGhostMode": {
+    "type": "checkbox",
+    "label": "enabled",
+    "value": false,
+    "group": "Ghost mode"
+  },
+  "hideHeadersMode": {
+    "type": "checkbox",
+    "label": "Hide headers",
+    "value": false,
+    "group": "Ghost mode"
+  },
+  "GhostModeColor": {
+    "type": "colorpicker",
+    "label": "Color",
+    "value": "rgba(255,255,255,0.5)",
+    "group": "Ghost mode"
+  },
+  "ghostModeTimeout": {
+    "type": "number",
+    "label": "Inactivity Time to enable (seconds)",
+    "value": 20,
+    "group": "Ghost mode"
+  },
+  "ghostModeRefreshTimeout": {
+    "type": "number",
+    "label": "Inactivity Time Refresh",
+    "value": 5,
+    "group": "Ghost mode"
+  },
+  "ghostModeScale": {
+    "type": "number",
+    "label": "Scale in ghost mode",
+    "value": 1,
+    "min": 0,
+    "max": 1,
+    "step": 0.1,
+    "group": "Ghost mode"
+  },
+  "multiplyTimeFunction": {
+    "type": "dropdown",
+    "label": "Curve type for multiply",
+    "value": "CurveConstant",
+    "group": "Multiply mark time function",
+    "options": {
+      "CurveExtreme": "Extreme Curve: 1x > 3x > 0x",
+      "CurveModerate": "Moderate Curve: 1x > 2x > 0x",
+      "CurveLight": "Light Curve: 1x > 1.5x > 0x",
+      "CurveLinearUp": "Linear Curve 1: 1x > 2x",
+      "CurveLinearDown": "Linear Curve 2: 1x > 0x",
+      "CurveConstant": "Constant: 1x"
+    }
+  },
+  "headerFont": {
+    "type": "googleFont",
+    "label": "Font",
+    "value": "Poppins",
+    "group": "Header Typography"
+  },
+  "headerSize": {
+    "type": "number",
+    "label": "Size",
+    "value": 20,
+    "min": 0,
+    "max": 120,
+    "step": 1,
+    "group": "Header Typography"
+  },
+  "headerColor": {
+    "type": "colorpicker",
+    "label": "Header Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "Header Typography"
+  },
+  "headerStrokeColor": {
+    "type": "colorpicker",
+    "label": "Header Stroke Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "Header Typography"
+  },
+  "headerStrokeWidth": {
+    "type": "number",
+    "label": "Header Stroke width",
+    "value": 1,
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "group": "Header Typography"
+  },
+  "headerVerticalAlignment": {
+    "type": "dropdown",
+    "label": "Header Vertical Alignment",
+    "value": "center",
+    "group": "Header Typography",
+    "options": {
+      "flex-start": "flex-start",
+      "flex-end": "flex-end",
+      "center": "center",
+      "stretch": "stretch",
+      "baseline": "baseline"
+    }
+  },
+  "headerHorizontalAlignment": {
+    "type": "dropdown",
+    "label": "Header Horizontal Alignment",
+    "value": "center",
+    "group": "Header Typography",
+    "options": {
+      "start": "start",
+      "center": "center",
+      "end": "end"
+    }
+  },
+  "countDownFont": {
+    "type": "googleFont",
+    "label": "Font",
+    "value": "Poppins",
+    "group": "CountDown Typography"
+  },
+  "countDownSize": {
+    "type": "number",
+    "label": "Size",
+    "value": 40,
+    "min": 10,
+    "max": 200,
+    "step": 1,
+    "group": "CountDown Typography"
+  },
+  "countDownColor": {
+    "type": "colorpicker",
+    "label": "CountDown Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "CountDown Typography"
+  },
+  "countDownStrokeColor": {
+    "type": "colorpicker",
+    "label": "CountDown Stroke Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "CountDown Typography"
+  },
+  "countDownStrokeWidth": {
+    "type": "number",
+    "label": "CountDown Stroke width",
+    "value": 1,
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "group": "CountDown Typography"
+  },
+  "countDownVerticalAlignment": {
+    "type": "dropdown",
+    "label": "countDown Vertical Alignment",
+    "value": "center",
+    "group": "CountDown Typography",
+    "options": {
+      "flex-start": "flex-start",
+      "flex-end": "flex-end",
+      "center": "center",
+      "stretch": "stretch",
+      "baseline": "baseline"
+    }
+  },
+  "countDownHorizontalAlignment": {
+    "type": "dropdown",
+    "label": "countDown Horizontal Alignment",
+    "value": "center",
+    "group": "CountDown Typography",
+    "options": {
+      "start": "start",
+      "center": "center",
+      "end": "end"
+    }
+  },
+  "showMarks": {
+    "type": "dropdown",
+    "label": "Show Marks",
+    "value": "no",
+    "group": "Marks Typography",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "stepsFont": {
+    "type": "googleFont",
+    "label": "Font",
+    "value": "Poppins",
+    "group": "Marks Typography"
+  },
+  "stepsSize": {
+    "type": "number",
+    "label": "Size",
+    "value": 20,
+    "min": 0,
+    "max": 120,
+    "step": 1,
+    "group": "Marks Typography"
+  },
+  "stepsColor": {
+    "type": "colorpicker",
+    "label": "steps Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "Marks Typography"
+  },
+  "stepsStrokeColor": {
+    "type": "colorpicker",
+    "label": "steps Stroke Color",
+    "value": "rgba(255,255,255,0.7)",
+    "group": "Marks Typography"
+  },
+  "stepsStrokeWidth": {
+    "type": "number",
+    "label": "steps Stroke width",
+    "value": 1,
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "group": "Marks Typography"
+  },
+  "stepsVerticalAlignment": {
+    "type": "dropdown",
+    "label": "steps Vertical Alignment",
+    "value": "center",
+    "group": "Marks Typography",
+    "options": {
+      "flex-start": "flex-start",
+      "flex-end": "flex-end",
+      "center": "center",
+      "stretch": "stretch",
+      "baseline": "baseline"
+    }
+  },
+  "stepsHorizontalAlignment": {
+    "type": "dropdown",
+    "label": "Marks Horizontal Alignment",
+    "value": "center",
+    "group": "Marks Typography",
+    "options": {
+      "start": "start",
+      "center": "center",
+      "end": "end"
+    }
+  }
+}
