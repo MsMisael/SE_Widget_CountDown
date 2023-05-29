@@ -165,18 +165,19 @@ Aproveite o widget de contagem regressiva customizado para envolver sua audiênc
 * Curve type for multiply:
     Comportamento da curva de calculo do tempo adicional definido em **CountDown controls > Time per Marks (seconds)**
 
-- "Extreme": O tempo adicional começa em 1x aumenta até 3x e no fim 0x
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 3x = 360 > 0x = 0**
-- "Moderate": O tempo adicional começa em 1x  aumenta até  2x e no fim 0x
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 2x = 240 > 0x = 0**
-- "Light":  O tempo adicional começa em 1x aumenta até 1.5x e no fim 0x
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 1.5x = 180 > 0x = 0**
-- "LinearUp": O tempo adicional começa em 1x até 2x
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 2x = 240**
-- "LinearDown": O tempo adicional começa em 1x até 0x
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
-- "Constant": O tempo adicional começa em 1x e não se altera
-> **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
+    - "Extreme": O tempo adicional começa em 1x aumenta até 3x e no fim 0x
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 3x = 360 > 0x = 0**
+    - "Moderate": O tempo adicional começa em 1x  aumenta até  2x e no fim 0x
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 2x = 240 > 0x = 0**
+    - "Light":  O tempo adicional começa em 1x aumenta até 1.5x e no fim 0x
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 1.5x = 180 > 0x = 0**
+    - "LinearUp": O tempo adicional começa em 1x até 2x
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 2x = 240**
+    - "LinearDown": O tempo adicional começa em 1x até 0x
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
+    - "Constant": O tempo adicional começa em 1x e não se altera
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
+    
 > **NOTA: em todos os casos o contador para de adicionar tempo quando atinge o limite de marks definido em CountDown controls > Time per Marks (seconds)**
 
 ### Header Typography:
