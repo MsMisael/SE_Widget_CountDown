@@ -93,6 +93,7 @@ Aproveite o widget de contagem regressiva customizado para envolver sua audiênc
     **Exemplo 3: valor 10 será exibido o tempo adicional de 10 Marks**
 
 ### Events settings:
+> Por padrão o widget nao vai acrescentar tempo pelos eventos disparados **VOCÊ PRECISA VIR AQUI E DEFINIR CADA CAMPO COMO "YES" PARA QUE O TEMPO ADICIONAL COMECE A SER CONSIDERADO PARA DONATES BITS E SUBS**
 
 * Include Tips:
     Campo que habilita a contagem de donates capturados pelo StreamElements
@@ -158,7 +159,7 @@ Aproveite o widget de contagem regressiva customizado para envolver sua audiênc
 
 
 ### Multiply mark time function:
-#### Alerta para nao nerds, ignore essa parte caso nao seja um nerd.
+#### **Alerta para nao nerds, ignore essa parte caso nao seja um nerd.**
 #### Apos definir o campo CountDown controls > Max Marks, o widget contabiliza a progressão até o limite máximo para evitar que seja adicionado tempo infinitamente. o campo abaixo serve para voce definir o quanto os valores podem ser alterados com base na progressão até chegar no seu limite, usualmente está definido como constante ou 1x.
 
 * Curve type for multiply:
