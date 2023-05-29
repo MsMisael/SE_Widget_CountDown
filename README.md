@@ -176,8 +176,8 @@ Aproveite o widget de contagem regressiva customizado para envolver sua audiênc
     - "LinearDown": O tempo adicional começa em 1x até 0x
     > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
     - "Constant": O tempo adicional começa em 1x e não se altera
-    > **Exemplo: tempo adicional de 120 segundos, 1x = 120 > 0x = 0**
-    
+    > **Exemplo: tempo adicional de 120 segundos, 1x = 120**
+
 > **NOTA: em todos os casos o contador para de adicionar tempo quando atinge o limite de marks definido em CountDown controls > Time per Marks (seconds)**
 
 ### Header Typography:
